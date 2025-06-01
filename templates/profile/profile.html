@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    {%load static%}
+    <link href="{% static 'profile/profile.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class = "menu">
+        <ul>
+            <li><a href="/profile/">Профиль</a></li>
+            <li><a href="/home/">Главная страница</a></li>
+            <li><a href="/about/">О нас</a></li>
+            <li><a href="/chats/">Чаты</a></li>
+            <li><a href="/friends/">Друзья</a></li>
+            <li><a href="{% url  'logout' %}">Выход</a></li>
+        </ul>
+        <hr>
+        <h1>Информация о вас</h1>
+    </div>
+    <div class="containers">
+        <div class="container">
+                <h2 id="you_profile_welcome">Здравствуйте, {{user.profile_name}}</h2>
+                <img src="../login/rsc/bg.jpg" alt="User">
+                <hr>
+                <div id="profile_age">
+                    {% for user in users %}
+                        {user.profile_name}
+                    {% endfor %}
+                </div>
+            <form method="GET" action="{% url 'edit_profile' %}">
+                {% csrf_token %}
+                <button type="submit">Редактировать профиль</button>
+            </form>    
+        </div>
+    </div>
+</body>
+
+</html>

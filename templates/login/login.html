@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Вход</title>
+    {% load static %}
+    <link href="{% static 'login/login.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="menu">
+        <h1>Palaton.Secure.Messages</h1>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="input">
+                <input type="text" name="username" id="username" placeholder="Логин" required>
+                <input type="password" name="password" id="password" placeholder="Пароль" required>
+                <button type="submit" name="action" value="login">Войти</button>
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+                </div>
+                {% endfor %}
+                <div id="forgot_password_and_registration">
+                    <a href="/registration/">Регистрация</a>
+                    <a href="">Забыли пароль?</a>
+                </div>
+            </div>
+        </form>
+        <!-- Объединенный цикл для обработки сообщений -->
+    </div>
+</body>
+</html>

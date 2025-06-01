@@ -1,0 +1,308 @@
+/* profile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../rsc/bg.jpg') no-repeat center center fixed; /* Фоновое изображение */
+    background-size: cover; /* Покрытие всего экрана */
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+/*------------------------------MENU---------------------------------*/
+.menu {
+    background: rgba(28, 28, 28, 0.8); /* Полупрозрачный фон */
+    padding: 5px;
+    border-bottom: 2px solid #d4a1ff;
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина меню для центрирования */
+    position: fixed;
+    top: 0;
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%) translateY(-100%); /* Начальная позиция: скрыто сверху */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    z-index: 1000;
+    border-radius: 0 0 15px 15px; /* Закругление нижних углов меню */
+    opacity: 0; /* Начальное состояние невидимости */
+    animation: slideDown 0.6s ease-out forwards; /* Анимация появления меню */
+}
+
+
+.menu ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: -5px;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu ul li {
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #d4a1ff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #a05bbd;
+}
+
+.menu h1 {
+    margin: -10px 10px 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+
+/*-----------------------------END MENU----------------------------------*/
+hr {
+    border: 0;
+    height: 1px;
+    background: #d4a1ff;
+    width: 50%; /* Adjust width as needed */
+    margin: 20px auto; /* Center the <hr> horizontally */
+}
+
+#button-exit {
+    cursor: pointer;
+}
+
+.menu a#button-exit {
+    color: #d4a1ff;
+}
+
+.menu a#button-exit:hover {
+    color: #a05bbd;
+}
+
+.containers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 100px; /* Space for fixed menu */
+}
+
+.container {
+    background-color: #1f1f1f;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a05bbd;
+}
+
+#edit_form {
+    margin-top: 20px;
+}
+
+#edit_form label {
+    font-size: 14px;
+    color: #d4a1ff;
+}
+
+#edit_form input {
+    padding: 10px;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #121212;
+    color: #e0e0e0;
+    outline: none;
+    width: 100%;
+    margin: 5px 0 10px;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.3);
+}
+
+#edit_form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    transition: background-color 0.3s;
+}
+
+#edit_form button:hover {
+    background-color: #a05bbd;
+}
+
+/*---------------------------------------------------------------*/
+/* Основной стиль для списка друзей */
+.friends-list {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам автоматически переноситься на следующую строку */
+    gap: 20px; /* Расстояние между карточками друзей */
+    justify-content: center; /* Центрирует карточки по горизонтали */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Стиль для карточки друга */
+.friend {
+    background-color: #1f1f1f; /* Фоновый цвет карточки */
+    border: 1px solid #d4a1ff; /* Цвет границы */
+    border-radius: 15px; /* Закругление углов карточки */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.3); /* Легкая тень для карточки */
+    padding: 15px;
+    width: 250px; /* Ширина карточки */
+    text-align: center; /* Центрирование текста внутри карточки */
+    color: #e0e0e0; /* Цвет текста */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавное изменение эффекта при наведении */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideDown 0.6s ease-out forwards; /* Анимация появления меню */
+}
+
+/* Стиль для изображения друга */
+.friend img {
+    width: 100px; /* Ширина изображения */
+    height: 100px; /* Высота изображения */
+    border-radius: 50%; /* Закругление изображения для формы круга */
+    object-fit: cover; /* Обрезка изображения для заполнения области */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+/* Стиль для имени друга */
+.friend h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #d4a1ff; /* Цвет имени друга */
+    text-shadow: 0 0 5px #d4a1ff; /* Тень текста имени */
+}
+
+/* Стиль для описания друга */
+.friend p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #a0a0a0; /* Цвет описания */
+    text-align: center; /* Центрирование текста */
+}
+
+/* Стиль для кнопки */
+.friend button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff; /* Фоновый цвет кнопки */
+    color: #121212; /* Цвет текста кнопки */
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5); /* Тень для кнопки */
+    transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+    margin-top: auto; /* Позиционирование кнопки внизу карточки */
+    animation: slideDown 0.9s ease-out forwards; /* Анимация появления меню */
+}
+
+/* Стиль для кнопки при наведении */
+.friend button:hover {
+    background-color: #a05bbd; /* Изменение фона при наведении */
+}
+
+/* Эффект при наведении на карточку друга */
+.friend:hover {
+    transform: translateY(-5px); /* Подъем карточки вверх */
+    box-shadow: 0 0 15px rgba(212, 161, 255, 0.5); /* Увеличение тени при наведении */
+}
+
+/*-----------------------------END friends-list----------------------------------*/
+
+/*------------------------------SEARCHE---------------------------------*/
+/* Стиль для блока поиска */
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование элементов внутри блока */
+    gap: 10px; /* Расстояние между полем ввода и кнопкой */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    width: 100%;
+    max-width: 600px; /* Максимальная ширина блока поиска */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+/* Стиль для поля ввода */
+#search-input {
+    padding: 10px;
+    border: 1px solid #d4a1ff; /* Цвет границы */
+    border-radius: 5px;
+    background-color: #1f1f1f; /* Фоновый цвет поля */
+    color: #e0e0e0; /* Цвет текста */
+    outline: none; /* Убрать стандартное выделение */
+    flex: 1; /* Занимает доступное пространство */
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.3); /* Легкая тень для поля */
+    font-size: 14px; /* Размер шрифта */
+}
+
+/* Стиль для кнопки поиска */
+#search-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff; /* Фоновый цвет кнопки */
+    color: #121212; /* Цвет текста кнопки */
+    font-size: 14px; /* Размер шрифта */
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5); /* Легкая тень для кнопки */
+    transition: background-color 0.3s; /* Плавное изменение фона при наведении */
+}
+
+/* Стиль для кнопки поиска при наведении */
+#search-button:hover {
+    background-color: #a05bbd; /* Изменение фона при наведении */
+}
+/*-----------------------------END SEARCHE----------------------------------*/
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

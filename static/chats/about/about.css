@@ -1,0 +1,235 @@
+/* profile.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../rsc/bg.jpg') no-repeat center center fixed; /* Пример изображения */
+    background-size: cover; /* Покрытие всего экрана */
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.menu {
+    background: rgba(28, 28, 28, 0.8); /* Полупрозрачный фон */
+    padding: 5px;
+    border-bottom: 2px solid #d4a1ff;
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина меню для центрирования */
+    position: fixed;
+    top: 0;
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%) translateY(-100%); /* Начальная позиция: скрыто сверху */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    z-index: 1000;
+    border-radius: 0 0 15px 15px; /* Закругление нижних углов меню */
+    opacity: 0; /* Начальное состояние невидимости */
+    animation: slideDown 0.6s ease-out forwards; /* Анимация появления меню */
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: -5px;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu ul li {
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #d4a1ff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #a05bbd;
+}
+
+.menu h1 {
+    margin: -10px 10px 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+.menu p{
+    text-align: center;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #e0e0e0;
+}
+.about{
+    background-color: #1f1f1f;
+    padding: 5px;
+    border-top: 2px solid #d4a1ff;
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина меню для центрирования */
+    position: fixed;
+    top:100%;
+    left: 50%; /* Центрирование по горизонтали */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    z-index: 1000;
+    transform: translateX(-0%) translateY(-500%);
+    border-radius: 15px 15px 0px 0px; /* Закругление нижних углов меню */
+    opacity: 0; /* Начальное состояние невидимости */
+    animation: fadeInUp 0.6s ease-out forwards; /* Анимация появления меню */
+}
+
+.about ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: -5px;
+    margin-bottom: -8px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.about ul li {
+    margin: 0;
+}
+
+.about ul li a {
+    text-decoration: none;
+    color: #d4a1ff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.about ul li a:hover {
+    color: #a05bbd;
+}
+@keyframes fadeInUp {
+    from {
+        transform: translateY(200%) translateX(-50%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-100%) translateX(-50%);
+        opacity: 1;
+    }
+}
+
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #d4a1ff;
+    width: 50%; /* Adjust width as needed */
+    margin: 20px auto; /* Center the <hr> horizontally */
+}
+
+
+#button-exit {
+    cursor: pointer;
+}
+
+.menu a#button-exit {
+    color: #d4a1ff;
+}
+
+.menu a#button-exit:hover {
+    color: #a05bbd;
+}
+
+.containers {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 100px; /* Space for fixed menu */
+}
+
+.container {
+    background-color: #1f1f1f;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+}
+
+h2 {
+    text-align: center;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a05bbd;
+}
+
+#edit_form {
+    margin-top: 20px;
+}
+
+#edit_form label {
+    font-size: 14px;
+    color: #d4a1ff;
+}
+
+#edit_form input {
+    padding: 10px;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #121212;
+    color: #e0e0e0;
+    outline: none;
+    width: 100%;
+    margin: 5px 0 10px;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.3);
+}
+
+#edit_form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    transition: background-color 0.3s;
+}
+
+#edit_form button:hover {
+    background-color: #a05bbd;
+}

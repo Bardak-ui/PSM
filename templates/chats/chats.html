@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Чат</title>
+</head>
+<body>
+    <h1>Общий чат</h1>
+
+    <div id="chat-messages">
+        {% for message in messages %}
+            <p><strong>{{ message.user.username }}</strong>: {{ message.content }}</p>
+        {% endfor %}
+    </div>
+    
+    <p>Сообщений: {{ messages.count }}</p>
+
+    <form method="post" action="" id="chat-form">
+        {% csrf_token %}
+        <input type="text" id="chat-message-input" name="message" autocomplete="off">
+        <button type="submit" id="chat-message-submit">Отправить</button>
+    </form>
+
+    <script>
+        const chatSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/chat/'
+        );
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const chatMessages = document.querySelector('#chat-messages');
+            const newMessage = document.createElement('p');
+            newMessage.innerHTML = `<strong>${data.message.split(': ')[0]}:</strong> ${data.message.split(': ')[1]}`;
+            chatMessages.appendChild(newMessage);
+        };
+
+        const form = document.querySelector('#chat-form');
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            const messageInput = document.querySelector('#chat-message-input');
+            const message = messageInput.value;
+
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
+
+            messageInput.value = '';
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../rsc/bg.jpg') no-repeat center center fixed; /* Фоновое изображение */
+    background-size: cover; /* Покрытие всего экрана */
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.menu {
+    background: rgba(28, 28, 28, 0.8); /* Полупрозрачный фон */
+    padding: 5px;
+    border-bottom: 2px solid #d4a1ff;
+    width: 100%;
+    max-width: 1000px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    z-index: 1000;
+    border-radius: 0 0 15px 15px;
+    opacity: 0;
+    animation: slideDown 0.6s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.container {
+    background-color: #1f1f1f;
+    border: 2px solid #d4a1ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 15%;
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+}
+
+.container img {
+    max-width: 100%;
+    border-radius: 50%;
+    margin-bottom: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: -5px 0 -10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu ul li {
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #d4a1ff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover,
+.menu ul li a:focus {
+    color: #a05bbd;
+}
+
+.menu ul li a:active {
+    color: #8c4ba0;
+}
+
+.menu h1 {
+    margin: -10px 10px 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+.container hr, hr {
+    border: 0;
+    height: 1px;
+    background: #d4a1ff;
+    width: 100%;
+    margin: 15px auto;
+}
+
+hr {
+    width: 50%;
+}
+
+#button-exit {
+    cursor: pointer;
+}
+
+.menu a#button-exit {
+    color: #d4a1ff;
+}
+
+.menu a#button-exit:hover {
+    color: #a05bbd;
+}
+
+.containers {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 100px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+h2 {
+    text-align: center;
+    color: #d4a1ff;
+    margin-top: 0;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+p {
+    font-size: 16px;
+    margin: 5px 0;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+    margin-top: 10px; /* Отступ сверху */
+    width: 100%; /* Ширина кнопки */
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+button:hover {
+    background-color: #a05bbd;
+}
+
+#edit_form {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+#edit_form label {
+    font-size: 14px;
+    color: #d4a1ff;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px #d4a1ff;
+    text-decoration: none;
+    transition: color 0.3s;
+    transition: text-decoration 0.3s;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#edit_form input {
+    padding: 10px;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #121212;
+    color: #e0e0e0;
+    outline: none;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.3);
+    margin-bottom: 10px;
+}
+
+#edit_form button {
+    width: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #d4a1ff;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

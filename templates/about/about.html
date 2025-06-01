@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>О нас</title>
+    {%load static%}
+    <link href="{% static 'about/about.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class = "menu">
+        <ul>
+            <li><a href="/profile/">Профиль</a></li>
+            <li><a href="/home/">Главная страница</a></li>
+            <li><a href="/about/">О нас</a></li>
+            <li><a href="/chats/">Чаты</a></li>
+            <li><a href="/friends/">Друзья</a></li>
+            <li><a id = "button-exit">Выход</a></li>
+        </ul>
+        <hr>
+        <h1>О нас</h1>
+        <p>|Сайт разработан энтузиастом, сайт является макетом для защищенного чата на случай блокировки других месенджеров|</p>
+    </div>
+    <div class = "about">
+        <ul>
+            <li><a href="https://t.me/Bardak_ui">Мой ТГ</a></li>
+            <li><a href="https://vk.com/bardak_ui">Мы Вконтакте</a></li>
+            <li><a href="https://onlyfans.com/">Наш онлик</a></li>
+        </ul>
+    </div>
+    <script src="{% static 'about/about.js' %}"></script>
+    <script src = "{% static 'exit.js' %}"></script>
+</body>
+
+</html>

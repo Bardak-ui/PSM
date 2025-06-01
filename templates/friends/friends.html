@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Друзья</title>
+    {% load static %}
+    <link href="{% static 'friends/friends.css' %}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class = "menu">
+        <ul>
+            <li><a href="/profile/">Профиль</a></li>
+            <li><a href="/home/">Главная страница</a></li>
+            <li><a href="/about/">О нас</a></li>
+            <li><a href="/chats/">Чаты</a></li>
+            <li><a href="/friends/">Друзья</a></li>
+            <li><a id = "button-exit">Выход</a></li>
+        </ul>
+        <hr>
+        <h1>Ваши друзья</h1>
+    </div>
+    <div class="search">
+        <input type="text" id="search-input" placeholder="Поиск друзей">
+        <button id="search-button">Найти</button>
+    </div>
+    <div class = "friends-list">
+        <div class="friend">
+            <img src="https://sun9-56.userapi.com/s/v1/ig2/uumocvri5mrPQEus3dhYS5WR_OkyHmxDbikuN6eGGSy1YGwEhDqBj3oiHcq3kUbB4yGc9J3i1VE_FFvsDUo6VlvZ.jpg?quality=95&as=32x43,48x64,72x96,108x144,160x213,240x320,360x480,480x640,540x720,640x853,720x960,1080x1440,1280x1707,1440x1920,1920x2560&from=bu&u=pYSyn8P_p1R3VdiC252YY0eD3CLw6cWagCD1D8BRdvc&cs=605x807" alt="User">
+            <h2>Ксюша</h2>
+            <p>ЛЮБИТ траву и ловить торренты</p>
+            <button>Открыть профиль</button>
+        </div>
+    </div>
+    <script src = "{% static 'friends/friends.js' %}"></script>
+    <script src = "{% static 'exit.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+/* Общие настройки */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Тёмный фон для современного стиля */
+    color: #e0e0e0; /* Светлый текст для контраста */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1s ease-in-out; /* Анимация появления страницы */
+}
+
+/* Контейнер формы */
+form {
+    background-color: #1e1e1e; /* Тёмный серый для выделения формы */
+    border: 1px solid #333; /* Лёгкая граница */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    animation: slideIn 0.8s ease-out; /* Анимация появления формы */
+}
+
+/* Заголовки */
+h1 {
+    color: #00bcd4; /* Нежный голубой для акцента */
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: textGlow 2s infinite; /* Анимация мерцания текста */
+}
+
+/* Поля ввода */
+input[type="text"], input[type="email"], input[type="password"] {
+    background-color: #2a2a2a; /* Чуть светлее основного фона */
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: transform 0.3s ease; /* Анимация масштабирования */
+}
+
+input:focus {
+    border-color: #00bcd4; /* Подсветка акцентным цветом */
+    outline: none;
+    transform: scale(1.05); /* Лёгкое увеличение при фокусе */
+}
+
+/* Кнопка отправки */
+button {
+    background-color: #00bcd4; /* Акцентный голубой */
+    color: #121212; /* Контрастный цвет текста */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный переход цвета и движения */
+}
+
+button:hover {
+    background-color: #0198a7; /* Затемнение при наведении */
+    transform: translateY(-3px); /* Лёгкий подъём при наведении */
+}
+
+a {
+    display: flex;
+    color: #58a6ff; /* Акцентный голубой */
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    justify-content: center;
+}
+
+a:hover {
+    color: #79c0ff; /* Подсветка при наведении */
+    transform: translateY(-2px); /* Лёгкий подъём */
+}
+
+a:active {
+    color: #3a9bdc; /* Более тёмный оттенок при клике */
+    transform: translateY(0); /* Возврат к изначальной позиции */
+}
+
+
+/* Сообщения */
+.alert {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    animation: fadeIn 0.5s ease-in; /* Анимация появления */
+}
+
+/* Сообщения об успехе */
+.alert-success {
+    background-color: #4caf50; /* Зелёный для успеха */
+    color: #ffffff;
+}
+
+/* Сообщения об ошибке */
+.alert-error {
+    background-color: #f44336; /* Красный для ошибок */
+    color: #ffffff;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 20px #00bcd4;
+    }
+    50% {
+        text-shadow: 0 0 10px #00e5ff, 0 0 20px #00e5ff, 0 0 40px #00e5ff;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Регистрация</title>
+    {% load static %}
+    <link href="{% static 'registration/registration.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <div class="h_menu">
+            <h1>Данные для входа</h1>
+        </div>
+        <div class="menu">
+            <input type="text" name="profile_name" autocomplete="name" placeholder="Псевдоним" required>
+            <input type="text" name="username" placeholder="Логин" required>
+            <input type="email" name="email" placeholder="Почта" required>
+            <input type="password" name="password" placeholder="Пароль" required>
+            <input type="password" name="password_confirm" placeholder="Подтвердите пароль" required>
+        </div>
+        <button type="submit" id="buttons">Зарегистрироваться</button>
+        <a href="../login/">Уже есть аккаунт</a>
+    </form>
+        <!-- Объединенный цикл для обработки сообщений -->
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                {{ message }}
+            </div>
+        {% endfor %}
+</body>
+</html>

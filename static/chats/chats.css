@@ -1,0 +1,247 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Скрыть полосы прокрутки */
+}
+
+body {
+    background: url('../rsc/bg.jpg') no-repeat center center fixed; /* Фоновое изображение */
+    background-size: cover; /* Покрытие всего экрана */
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+}
+
+.menu {
+    background: rgba(28, 28, 28, 0.8); /* Полупрозрачный фон */
+    padding: 5px;
+    border-bottom: 2px solid #d4a1ff;
+    width: 100%;
+    max-width: 1000px; /* Максимальная ширина меню для центрирования */
+    position: fixed;
+    top: 0;
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translateX(-50%) translateY(-100%); /* Начальная позиция: скрыто сверху */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5);
+    z-index: 1000;
+    border-radius: 0 0 15px 15px; /* Закругление нижних углов меню */
+    opacity: 0; /* Начальное состояние невидимости */
+    animation: slideDown 0.6s ease-out forwards; /* Анимация появления меню */
+}
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+.menu ul {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: -5px;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.menu ul li {
+    margin: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #d4a1ff;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: #a05bbd;
+}
+
+.menu h1 {
+    margin: -10px 10px 10px;
+    text-align: center;
+    font-size: 24px;
+    color: #d4a1ff;
+    text-shadow: 0 0 5px #d4a1ff;
+}
+
+#button-exit {
+    cursor: pointer;
+}
+
+.menu a#button-exit {
+    color: #d4a1ff;
+}
+
+.menu a#button-exit:hover {
+    color: #a05bbd;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #d4a1ff;
+    width: 50%; /* Adjust width as needed */
+    margin: 20px auto; /* Center the <hr> horizontally */
+}
+
+.container {
+    margin-top: 100px; /* Space for fixed menu */
+    margin-bottom: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    height: calc(100vh - 100px); /* Full height minus fixed menu height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+    border-radius: 15px; /* Закругление углов контейнера */
+    background-color: #1f1f1f; /* Фоновый цвет контейнера */
+    box-shadow: 0 0 10px rgba(212, 161, 255, 0.5); /* Тень для контейнера */
+    overflow: hidden; /* Чтобы предотвратить выход содержимого за границы контейнера */
+}
+
+#message_block {
+    flex: 1;
+    overflow-y: auto;
+    font-size: 14px;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #1f1f1f;
+    border: 1px solid #d4a1ff;
+    border-radius: 10px; /* Закругление углов блока сообщений */
+    width: 100%;
+    box-sizing: border-box; /* Чтобы padding и border учитывались в общей ширине */
+    padding-right: 10px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.4s forwards;
+}
+
+/* Кастомизация полосы прокрутки для контейнера сообщений */
+#message_block::-webkit-scrollbar {
+    width: 8px; /* Ширина полосы прокрутки */
+}
+
+#message_block::-webkit-scrollbar-track {
+    background: #1f1f1f; /* Цвет фона трека полосы прокрутки */
+    border-radius: 10px; /* Закругление углов трека */
+}
+
+#message_block::-webkit-scrollbar-thumb {
+    background: #d4a1ff; /* Цвет ползунка полосы прокрутки */
+    border-radius: 10px; /* Закругление углов ползунка */
+}
+
+#message_block::-webkit-scrollbar-thumb:hover {
+    background: #a05bbd; /* Цвет ползунка при наведении */
+}
+
+.message {
+    background-color: #1f1f1f;
+    border: 1px solid #d4a1ff;
+    border-radius: 10px; /* Закругление углов сообщений */
+    padding: 10px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+    word-wrap: break-word; /* Перенос длинных слов */
+    overflow-wrap: break-word; /* Перенос длинных слов */
+}
+
+.message.exit {
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+.meta {
+    font-size: 12px;
+    color: #a0a0a0;
+    margin-bottom: 5px;
+}
+
+.content {
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.input {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Pushes the input to the bottom */
+    width: 100%;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 0.6s forwards;
+}
+
+.input input {
+    padding: 10px;
+    border: 1px solid #d4a1ff;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #121212;
+    color: #e0e0e0;
+    outline: none;
+    flex: 1;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.3);
+}
+
+.input input::placeholder {
+    color: #e0e0e0;
+}
+
+.input button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4a1ff;
+    color: #121212;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(212, 161, 255, 0.5);
+    transition: background-color 0.3s;
+}
+
+.input button:hover {
+    background-color: #a05bbd;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
